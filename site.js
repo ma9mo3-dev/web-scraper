@@ -36,15 +36,12 @@
 
     (async function(){
       try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(()=>controller.abort(), 60000);
+        // استدعاء دالة Netlify
         const resp = await fetch('/.netlify/functions/scrape', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ url }),
-          signal: controller.signal
+          body: JSON.stringify({ url })
         });
-        clearTimeout(timeoutId);
 
         if(!resp.ok){
           const txt = await resp.text().catch(()=>resp.statusText);
@@ -53,7 +50,10 @@
           return;
         }
 
+        // الحصول على ZIP
         const blob = await resp.blob();
+
+        // حفظ البيانات في sessionStorage للواجهة النهائية
         const shotUrl = 'https://image.thum.io/get/width/1200/crop/800/' + encodeURIComponent(url);
         sessionStorage.setItem('wep_result_screenshot', shotUrl);
         try {
@@ -62,6 +62,8 @@
           sessionStorage.setItem('wep_result_name', 'site');
         }
         sessionStorage.setItem('wep_result_zip_blob', URL.createObjectURL(blob));
+
+        // تحويل المستخدم للواجهة النهائية
         window.location.href = 'result.html';
       } catch(err) {
         console.error(err);
@@ -94,13 +96,13 @@
     dl.download = name + '.zip';
     dl.addEventListener('click', function(){
       setTimeout(()=> {
-        const blob = sessionStorage.getItem('wep_result_zip_blob');
-        if(blob) URL.revokeObjectURL(blob);
+        URL.revokeObjectURL(zipBlobUrl);
         sessionStorage.removeItem('wep_result_zip_blob');
       }, 5000);
     });
   }
 
+  // ديمو زر
   const demoBtn = document.getElementById('demo-btn');
   if(demoBtn){
     demoBtn.addEventListener('click', function(){
