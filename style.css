@@ -1,0 +1,123 @@
+/* عام */
+body {
+  margin:0;
+  font-family: 'Tajawal', sans-serif;
+  background: linear-gradient(135deg,#141e30,#243b55);
+  color:#f1f1f1;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* البطاقة الرئيسية */
+.card {
+  background:#1e1e2f;
+  border-radius:20px;
+  padding:30px 25px;
+  text-align:center;
+  box-shadow:0 0 30px rgba(0,0,0,0.4);
+  max-width:400px;
+  width:90%;
+}
+
+/* العناوين */
+.title {
+  font-size:26px;
+  color:#6a0dad;
+  margin-bottom:15px;
+}
+.lead {
+  font-size:16px;
+  color:#ccc;
+  margin-bottom:20px;
+}
+.small {
+  font-size:13px;
+  color:#aaa;
+}
+
+/* الصور */
+.logo, .screenshot {
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #6a0dad;
+  margin-bottom:15px;
+}
+
+/* الادخال */
+.input {
+  width:100%;
+  padding:12px 15px;
+  border-radius:10px;
+  border:none;
+  margin-bottom:20px;
+  font-size:15px;
+}
+
+/* الأزرار */
+.btn {
+  display:inline-block;
+  padding:10px 20px;
+  border-radius:10px;
+  font-size:15px;
+  margin:5px;
+  cursor:pointer;
+  text-decoration:none;
+  transition:0.3s;
+}
+.btn.primary {
+  background:#6a0dad;
+  color:#fff;
+}
+.btn.primary:hover {
+  background:#7e1fd1;
+}
+.btn.ghost {
+  background:transparent;
+  border:1px solid #6a0dad;
+  color:#fff;
+}
+.btn.ghost:hover {
+  background:#6a0dad;
+  color:#fff;
+}
+
+/* المركزية */
+.center {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* الصفوف */
+.row {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+/* loaders (انظر ملف loading.html) */
+.loader {
+  width:60px;
+  height:60px;
+  margin:30px auto;
+  position:relative;
+}
+.ball {
+  width:20px;
+  height:20px;
+  background: linear-gradient(45deg,#6a0dad,#ff6fff);
+  border-radius:50%;
+  position:absolute;
+  animation:bounce 1s infinite alternate;
+}
+@keyframes bounce {
+  0% { top:0; left:0; }
+  25% { top:0; left:40px; }
+  50% { top:40px; left:40px; }
+  75% { top:40px; left:0; }
+  100% { top:0; left:0; }
+  }
