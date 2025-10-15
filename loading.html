@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جارٍ التحميل — WEP SCRAPER</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <main class="card center">
+    <h1 class="title">تــائــه يحــظر المــلفات...</h1>
+    <div class="loader">
+      <div class="ball"></div>
+    </div>
+    <p id="loader-phrases" class="lead">إقــترب إكــتمال تحظــير...</p>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="site.js"></script>
+
+  <style>
+    .loader {
+      width: 60px;
+      height: 60px;
+      margin: 30px auto;
+      position: relative;
+    }
+    .ball {
+      width: 20px;
+      height: 20px;
+      background: linear-gradient(45deg,#6a0dad,#ff6fff);
+      border-radius: 50%;
+      position: absolute;
+      animation: bounce 1s infinite alternate;
+    }
+    @keyframes bounce {
+      0% { top:0; left:0; }
+      25% { top:0; left:40px; }
+      50% { top:40px; left:40px; }
+      75% { top:40px; left:0; }
+      100% { top:0; left:0; }
+    }
+  </style>
+</body>
+      </html>
